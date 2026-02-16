@@ -19,7 +19,6 @@ export const tourData = {
     "Waterfalls",
     "Tomb of Mevlana",
     "Underground City",
-    "Goreme Open Air Museum",
     "Cappadocia",
   ],
   itinerary: [
