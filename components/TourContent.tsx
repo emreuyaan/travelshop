@@ -148,6 +148,63 @@ export default function TourContent({ data }: { data: any }) {
             <Itinerary days={data.itinerary} />
          </AnimatedSection>
 
+         {/* Optional Activities */}
+         {data.optionalActivities && data.optionalActivities.length > 0 && (
+            <AnimatedSection id="optional-activities">
+               <SectionHeading subtitle="Enhance your trip">Optional Activities</SectionHeading>
+               <div className="grid md:grid-cols-2 gap-6">
+                  {data.optionalActivities.map((activity: any, index: number) => (
+                     <div key={index} className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full transform hover:-translate-y-1">
+                        {/* Image Area */}
+                        <div className="relative h-64 overflow-hidden">
+                           <div
+                              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                              style={{ backgroundImage: `url(${activity.image})` }}
+                           />
+                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+
+                           <div className="absolute top-4 right-4">
+                              <span className="bg-white/95 backdrop-blur-md text-[#854EC9] text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border border-white/50">
+                                 Recommended
+                              </span>
+                           </div>
+
+                           <div className="absolute bottom-4 left-5 right-5 transfrom transition-transform duration-300 group-hover:translate-y-[-4px]">
+                              <h3 className="text-white font-bold text-2xl leading-tight mb-1 drop-shadow-md">
+                                 {activity.title}
+                              </h3>
+                           </div>
+                        </div>
+
+                        {/* Content Area */}
+                        <div className="p-6 flex flex-col flex-grow bg-white relative">
+                           <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow border-l-2 border-[#854EC9]/20 pl-3">
+                              {activity.description}
+                           </p>
+
+                           <div className="flex items-center justify-between pt-4 border-t border-gray-50">
+                              <div className="flex flex-col">
+                                 <span className="text-xs text-gray-400 font-bold uppercase tracking-wider">Per Person</span>
+                                 <span className="text-2xl font-bold text-[#854EC9]">€{activity.price}</span>
+                              </div>
+
+                              <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white text-[#090A24] font-bold text-sm border border-gray-200 shadow-sm transition-all duration-300 hover:bg-[#854EC9] hover:text-white hover:border-[#854EC9] hover:shadow-lg hover:shadow-[#854EC9]/25 hover:-translate-y-0.5 active:scale-95">
+                                 <span>Add to Trip</span>
+                                 <span className="bg-gray-100 text-gray-500 rounded-full p-1 transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                       <line x1="12" y1="5" x2="12" y2="19"></line>
+                                       <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                 </span>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  ))}
+               </div>
+            </AnimatedSection>
+         )}
+
          {/* Included / Excluded */}
          <AnimatedSection id="includes">
             <SectionHeading subtitle="What&apos;s covered">Trip Includes</SectionHeading>

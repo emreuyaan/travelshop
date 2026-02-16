@@ -111,4 +111,18 @@ export const tourData = {
     startDate: "Mar 7, 2026",
     endDate: "Mar 16, 2026",
   },
+  optionalActivities: [
+    {
+      title: "Istanbul Bosphorus Dinner Cruise",
+      price: 150, // estimated price, can be adjusted
+      description: "Enjoy a delicious dinner while cruising between two continents.",
+      image: "/images/highlight-istanbul.jpg"
+    },
+    {
+      title: "Cappadocia Hot Air Ballooning Tour",
+      price: 250, // estimated price, can be adjusted
+      description: "Experience the magic of Cappadocia from above at sunrise.",
+      image: "/images/tour-5.jpg?v=2"
+    }
+  ],
 };
